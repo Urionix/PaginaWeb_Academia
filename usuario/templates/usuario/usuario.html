@@ -1,0 +1,60 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+  {% if user.is_authenticated %}
+
+  <div class="container my-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <div class="card">
+          <img src="{{ user.Foto_perfil.url }}" class="card-img-top" alt="FOTO PERFIL-NO ENCONTRADA">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.first_name }} {{ user.last_name }} </h5>
+
+            <small><strong>Nombre de Usuario:</strong>&nbsp;{{user.username}}</small>
+            <br/>
+            <small><strong>DPI:</strong>&nbsp;{{user.DPI}}</small>
+            <br/>
+            <small><i class="bi bi-envelope"></i>&nbsp;{{user.email}}</small>
+            <br/>
+            <small><i class="bi bi-geo-alt-fill"></i>&nbsp;{{user.Ubicacion}}</small>
+            <br/>
+            <small><i class="bi bi-cake2"></i>&nbsp;{{user.fecha_nacimiento}}</small>
+            <br/><br/>
+            <small><strong>Biografia:</strong></small></br>
+            <small>{{user.Biografia}}</small>
+            <br/>
+
+
+            <br/>
+
+            <a href={% url 'cerrar_sesion' %} class="btn btn-sm btn-success">Cerrar Sesión</a>
+            <a href="#" class="btn btn-sm" style="background-color: blue; color: white;">Editar Perfil</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  {% endif %}
+
+
+
+
+
+
+
+
+
+
+<br/>
+<div class="barra"></div>
+
+  {% endblock %}
